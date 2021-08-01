@@ -7,7 +7,7 @@ class Hexapawn:
         if not isinstance(board, Board):
             raise TypeError('board must be a Board object')
         if board.row != 3 or board.column != 3:
-            raise Error('board must only have 3 rows and 3 columns')
+            raise Exception('board must only have 3 rows and 3 columns')
         
         for index, player in enumerate(players):
             if index > 1:
@@ -57,10 +57,10 @@ class Hexapawn:
             for x in range(board.column):
                 try:
                     if get_piece_moves_at(y, x) != []:
-                        return True
+                        return False
                 except TypeError:
                     continue
-        return False
+        return True
     
     def is_player_at_end(self, player):
         if not isinstance(player, Player):
@@ -68,7 +68,7 @@ class Hexapawn:
         
         board = self.board
         player_index = self.players.index(player) * -1
-        color = self.colors[player_index]
+        color = 'w' if player_index == 0 else 'b'
         
         for x in board[player_index]: 
             try:
@@ -80,20 +80,20 @@ class Hexapawn:
         return False
     
     def is_win(self):
-        return is_stalemate() or is_current_player_at_end(self.current_player)
+        return self.is_stalemate() or self.is_player_at_end(self.current_player)
     
     def move_piece(self, current, future):
         y, x = current
         piece = self.board[y][x]
         
         if piece is None:
-            raise Error('There is no Piece in location')
+            raise Exception('There is no Piece in location')
         
         if piece.color != self.current_color:
-            raise Error('The piece is not yours')
+            raise Exception('The piece is not yours')
         
-        if future not in self.get_piece_moves_at(y, x):
-            raise Error('Cannot move to given future')
+        if tuple(future) not in self.get_piece_moves_at(y, x):
+            raise Exception('Cannot move to given future')
         
         self.board[y][x] = None
         self.board[future[0]][future[-1]] = piece
@@ -104,14 +104,14 @@ class Hexapawn:
         
         return -1 if piece.color == 'w' else 1
     
-    def get_piece_moves_at(self, row, column):
+    def get_piece_moves_at(self, y, x):
         board = self.board
-        piece = board[row][column]
+        piece = board[y][x]
         
         if not isinstance(piece, Piece):
-            raise TypeError(f"Object at {row, column} must be an instance of piece.")
+            raise TypeError(f"Object at {x, y} must be an instance of piece.")
         
-        direction = get_piece_direction(piece)
+        direction = self.get_piece_direction_by_color(piece)
         moves = []
         new_y = y + direction
         
@@ -125,22 +125,29 @@ class Hexapawn:
             new_x = x + x_
             try:
                 if board[new_y][new_x].color != piece.color:
-                    moves.apppend((new_y, new_x))
-                continue
+                    moves.append((new_y, new_x))
             except IndexError:
-                continue 
+                continue
             except AttributeError:
                 continue
+            
         return moves
     
     def start_game_in_terminal(self):
         self.is_on_going = True
         
-        while self.is_in_progress:
+        while self.is_on_going:
             print(str(self.board))
-            before, after = self.current_player.get_move_input().split("|")
             
-            self.move_piece(before.split(","), after.split(","))
+            before, after = self.current_player.get_move_input().split("|")
+            before = [int(x) for x in before.split(",")]
+            after = [int(x) for x in after.split(",")]
+            
+            try:
+                self.move_piece(before, after)
+            except:
+                print(f"Available moves: {self.get_piece_moves_at(*before)}")
+                continue
             
             if self.is_win():
                 print(self.current_player.name + 'won!')

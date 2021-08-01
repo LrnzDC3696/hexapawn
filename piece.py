@@ -1,6 +1,6 @@
 class Piece:
-    WHITE_PAWN = '♟'
-    BLACK_PAWN = '♙'
+    WHITE_PAWN = 'P'
+    BLACK_PAWN = 'p'
     
     def __init__(self, color):
         if color not in ('w', 'b'):

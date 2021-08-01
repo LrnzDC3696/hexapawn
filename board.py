@@ -2,7 +2,7 @@ from string import ascii_uppercase
 
 class Board:
     IDENTIFIER = ascii_uppercase
-    NONE_STR = 'X'
+    NONE_STR = '.'
     MAXIMUM = 26
 
     def __init__(self, row, column):
@@ -24,10 +24,11 @@ class Board:
     
     def __str__(self):
         str_ = []
+        SPACER = ' '
         NONE_STR = self.NONE_STR
         for index, row in enumerate(self.board, 1):
             row = [str(item) if item is not None else NONE_STR for item in row]
             row.append(str(index))
-            str_.append(''.join(row))
-        str_.insert(0, self.IDENTIFIER[:index])
-        return ''.join(str_)
+            str_.append(SPACER.join(row))
+        str_.insert(0, SPACER.join(self.IDENTIFIER[:index]))
+        return '\n'.join(str_)
