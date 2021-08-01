@@ -3,20 +3,18 @@ from player import Player
 from piece import Piece
 
 class Hexapawn:
-    def __init__(self, board, players:tuple):
+    def __init__(self, board, player1, player2):
         if not isinstance(board, Board):
             raise TypeError('board must be a Board object')
         if board.row != 3 or board.column != 3:
             raise Exception('board must only have 3 rows and 3 columns')
         
-        for index, player in enumerate(players):
-            if index > 1:
-                raise Error('Players must only be 2')
+        for player in enumerate(player1, player2):
             if isinstance(player, Player):
                 continue
-            raise TypeError(f"player at index {index} must be a Player object")
+            raise TypeError('player at must be a Player object')
         
-        self.players = tuple(players)
+        self.players = (player1, player2)
         self.board = board
         self.is_on_going = False
         self.is_white_turn = True
