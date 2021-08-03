@@ -1,24 +1,25 @@
-from typing import Optional, List, Union, Tuple
+from typing import List, Optional, Tuple, Union
 
 from board import Board
-from player import Player
+from color import Color
 from piece import Piece
+from player import Player
 
 class Hexapawn:
     ROW = 3
     COLUMN = 3
     
-    def __init__(self, board: Board, player1: Player, player2: Player):
-        if not isinstance(board, Board):
-            raise TypeError('board must be a Board object')
+    def __init__(self, board: Board, player1: Player, player2: Player) -> None:
+        # if not isinstance(board, Board):
+        #     raise TypeError('board must be a Board object')
         
         if board.row != self.ROW or board.column != self.COLUMN:
             raise Exception('board must only have 3 rows and 3 columns')
         
-        for player in (player1, player2):
-            if isinstance(player, Player):
-                continue
-            raise TypeError('player at must be a Player object')
+        # for player in (player1, player2):
+        #     if isinstance(player, Player):
+        #         continue
+        #     raise TypeError('player at must be a Player object')
         
         self.players = (player1, player2)
         self.board = board
@@ -26,30 +27,30 @@ class Hexapawn:
         self.is_white_turn = True
     
     @property
-    def current_player_index(self):
+    def current_player_index(self) -> int:
         return 0 if self.is_white_turn else -1
     
     @property
-    def current_player(self):
+    def current_player(self) -> Player:
         return self.players[self.current_player_index]
     
     @property
-    def current_color(self):
+    def current_color(self) -> str:
         return 'w' if self.is_white_turn else 'b'
     
     @property
-    def current_direction(self):
+    def current_direction(self) -> int:
         return -1 if self.is_white_turn else 1
     
-    def change_white_turn(self, value: Optional[bool] = None):
+    def change_white_turn(self, value: Optional[bool] = None) -> None:
         is_white_turn = self.is_white_turn
         
         if value is None:
             self.is_white_turn = False if is_white_turn else True
             return
         
-        if not isinstance(value, bool):
-             raise TypeError(f"{value} must be type bool.")
+        # if not isinstance(value, bool):
+        #      raise TypeError(f"{value} must be type bool.")
         
         self.is_white_turn = value
     
@@ -67,8 +68,8 @@ class Hexapawn:
         return True
     
     def is_player_at_end(self, player: Player) -> bool:
-        if not isinstance(player, Player):
-            raise TypeError('player must be an instance of Player')
+        # if not isinstance(player, Player):
+        #     raise TypeError('player must be an instance of Player')
         
         board = self.board
         player_index = self.players.index(player) * -1
@@ -86,7 +87,7 @@ class Hexapawn:
     def is_win(self) -> bool:
         return self.is_stalemate() or self.is_player_at_end(self.current_player)
     
-    def move_piece(self, current: Union[List[int], Tuple[int]], future: Union[List[int], Tuple[int]]):
+    def move_piece(self, current: Union[List[int], Tuple[int]], future: Union[List[int], Tuple[int]]) -> None:
         y, x = current
         piece = self.board[y][x]
         
@@ -103,17 +104,17 @@ class Hexapawn:
         self.board[future[0]][future[-1]] = piece
     
     def get_piece_direction_by_color(self, piece: Piece) -> int:
-        if not isinstance(piece, Piece):
-            raise TypeError('piece must an instance of Piece')
+        # if not isinstance(piece, Piece):
+        #     raise TypeError('piece must an instance of Piece')
         
         return -1 if piece.color == 'w' else 1
     
-    def get_piece_moves_at(self, y: int, x: int) -> List[Tuple[int]]:
+    def get_piece_moves_at(self, y: int, x: int) -> List[Tuple[int, int]]:
         board = self.board
         piece = board[y][x]
         
-        if not isinstance(piece, Piece):
-            raise TypeError(f"Object at {x, y} must be an instance of piece.")
+        # if not isinstance(piece, Piece):
+        #     raise TypeError(f"Object at {x, y} must be an instance of piece.")
         
         direction = self.get_piece_direction_by_color(piece)
         moves = []
@@ -137,7 +138,7 @@ class Hexapawn:
             
         return moves
     
-    def start_game_in_terminal(self):
+    def start_game_in_terminal(self) -> None:
         self.is_on_going = True
         
         while self.is_on_going:
@@ -159,7 +160,7 @@ class Hexapawn:
             
             self.change_white_turn()
     
-    def set_up_board_with(self, piece: Piece):
+    def set_up_board_with(self, piece: Piece) -> None:
         board = self.board
         
         for y, color in ((0, 'b'), (-1, 'w')):
