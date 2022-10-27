@@ -1,9 +1,11 @@
 <!-- omit in toc -->
 # Contributing to HexaPawn
 
-First off, thanks for taking the time to contribute! ❤️
+Hello there 😊👋 We are *happy* you are here 🥳🎉
 
-All types of contributions are encouraged and valued. See the [Table of Contents](#table-of-contents) for different ways to help and details about how this project handles them. Please make sure to read the relevant section before making your contribution. It will make it a lot easier for us maintainers and smooth out the experience for all involved. The community looks forward to your contributions. 🎉
+Thank you so much for your interest in our project, we warmly welcome every contributor! ❤️‍🔥
+
+👉 Before you start contributing, please make sure to see the [Table of Contents](#table-of-contents) for different ways to help and details about how this project handles them. Ensure to read the relevant section before making your contribution. It will make it a lot easier for us maintainers and smooth out the experience for all involved. The community looks forward to your contributions. 🎉
 
 > And if you like the project, but just don't have time to contribute, that's fine. There are other easy ways to support the project and show your appreciation, which we would also be very happy about:
 > - Star the project
@@ -60,10 +62,14 @@ Depending on how large the project is, you may want to outsource the questioning
 > ### Legal Notice <!-- omit in toc -->
 > When contributing to this project, you must agree that you have authored 100% of the content, that you have the necessary rights to the content and that the content you contribute may be provided under the project license.
 
-### Reporting Bugs
+### Reporting Bugs 🐛
+
+Did you find a bug? We would love to know exactly what it is about 😊
+
+You can contribute to our project by submitting a bug report to us.
 
 <!-- omit in toc -->
-#### Before Submitting a Bug Report
+#### Before Submitting a Bug Report 📃
 
 A good bug report shouldn't leave others needing to chase you up for more information. Therefore, we ask you to investigate carefully, collect information and describe the issue in detail in your report. Please complete the following steps in advance to help us fix any potential bug as fast as possible.
 
@@ -79,7 +85,7 @@ A good bug report shouldn't leave others needing to chase you up for more inform
   - Can you reliably reproduce the issue? And can you also reproduce it with older versions?
 
 <!-- omit in toc -->
-#### How Do I Submit a Good Bug Report?
+#### How Do I Submit a Good Bug Report? 📃
 
 > You must never report security related issues, vulnerabilities or bugs including sensitive information to the issue tracker, or elsewhere in public. Instead sensitive bugs must be sent by email to <>.
 <!-- You may add a PGP key to allow the messages to be sent encrypted as well. -->
@@ -100,12 +106,14 @@ Once it's filed:
 <!-- You might want to create an issue template for bugs and errors that can be used as a guide and that defines the structure of the information to be included. If you do so, reference it here in the description. -->
 
 
-### Suggesting Enhancements
+### Suggesting Enhancements 💡
 
-This section guides you through submitting an enhancement suggestion for HexaPawn, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help maintainers and the community to understand your suggestion and find related suggestions.
+New enhancements/features are the fuel our project needs to keep progressing and to set new goals! 🚀
+
+This section guides you through submitting an enhancement suggestion for HexaPawn, **including completely new features and minor improvements to existing functionality**. Following these guidelines will help our maintainers and the community to understand your suggestion and find related suggestions.
 
 <!-- omit in toc -->
-#### Before Submitting an Enhancement
+#### Before Submitting an Enhancement ☝️
 
 - Make sure that you are using the latest version.
 - Read the [documentation](https://github.com/LrnzDC3696/hexapawn/) carefully and find out if the functionality is already covered, maybe by an individual configuration.
@@ -138,10 +146,27 @@ Updating, improving and correcting the documentation
 -->
 
 ## Styleguides
-### Commit Messages
+
+These are mostly guidelines, not rules.
 <!-- TODO
+Expand intro text
 
 -->
+
+### Commit Messages
+
+* Make sure your PR title is in the right format:
+    * Use the present tense (`Add feature` not `Added feature`)
+    * Use the imperative mood (`Add function to...` not `Adds function to...`)
+* Keep descriptions concise and **short**.
+* Add a section only if needed.
+* Check your grammar and spelling.
+* Remove any trailing whitespace.
+
+<!-- omit in toc -->
+### Atomic Commits
+
+* Commits should always be as small as possible, while ensuring that each commit is independently correct. For more information on atomic commits, check out this [post](https://www.aleksandrhovhannisyan.com/blog/atomic-git-commits/).
 
 ## Join The Project Team
 <!-- TODO -->
