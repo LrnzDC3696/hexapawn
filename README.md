@@ -1,23 +1,92 @@
-# HexaPawn
+# Welcome to hexapawn 👋
 
-# What is HexaPawn?
+[![GitHub issues](https://img.shields.io/github/issues/LrnzDC3696/hexapawn)](https://github.com/LrnzDC3696/hexapawn/issues)
+[![GitHub forks](https://img.shields.io/github/forks/LrnzDC3696/hexapawn)](https://github.com/LrnzDC3696/hexapawn/network)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CONTRIBUTING.md)
+[![GitHub license](https://img.shields.io/github/license/LrnzDC3696/hexapawn)](https://github.com/LrnzDC3696/hexapawn/blob/main/LICENSE)
 
-Hexapawn is a deterministic two-player game invented by Martin Gardner. It is played on a rectangular
-board of variable size, for example on a 3×3 board or on a chessboard. On a board of size n×m, each player
-begins with m pawns, one for each square in the row closest to them.
-The goal of each player is to advance one of their pawns to the opposite end of the board or to prevent
-the other player from moving.
+![hexapawn_banner_2](https://user-images.githubusercontent.com/101978594/198906770-e31682b8-44f5-46af-a110-7e0413d20c7a.png)
 
-Hexapawn on the 3×3 board is a solved game; with perfect play, white will always lose in 
-3 moves: (1.b2 axb2 2.cxb2 c2 3.a2 c1#). Indeed, Gardner specifically constructed it as a game
-with a small game tree, in order to demonstrate how it could be played by a heuristic AI implemented
-by a mechanical computer based on Donald Michie's Matchbox Educable Noughts and Crosses Engine.
+## What is Hexpawn?
+
+Hexapawn is a simple two-player board game which has it's origins in chess and was developed by Martin Gardner in 1962. It is played on a mere 3x3 rectangular board and, as the name implies, all the pieces on the board are exclusively pawns.
+
+Unlike chess, the board size can vary, as well as the amount of pawns (proportional to the board size). The game was initially constructed in order to demonstrate how it could be played by a heuristic AI implemented by a mechanical computer based on [Donald Michie's Matchbox Educable Noughts and Crosses Engine](https://en.wikipedia.org/wiki/Matchbox_Educable_Noughts_and_Crosses_Engine) (a computer made out of matchboxes).
 
 ![image](https://user-images.githubusercontent.com/95162875/198818692-bd7c9f88-0e60-425d-b88d-c912c5cf3525.png)
 
+#### How to play Hexapawn
 
-## Rules
-As in chess, each pawn may be moved in two different ways: it may be moved one square forward, or it
-may capture a pawn one square diagonally ahead of it. A pawn may not be moved forward if there is a
-pawn in the next square. Unlike chess, the first move of a pawn may not advance it by two spaces. 
-A player loses if they have no legal moves or the other player reaches the end of the board with a pawn.
+On a board size `n*m`, each player begins with `m` pawns, one for each square in the row closest to them. The goal of each player is to advance one of their pawns to the opposite end of the board or to prevent the other player from moving.
+
+#### Rules
+
+Just like in chess, each pawn may be moved in two different ways:
+1. One Square forward
+2. One Square diagonally to capture a other pawn
+
+A pawn may not be moved forward if there is a pawn in the next square. Contrary to chess, the first move of a pawn may not advance it by two spaces. A player loses if they have no legal moves or the other player reaches the end of the board with a pawn. Since each pawn can only move forward, there is no need for a draw by repetition rule.
+
+### Variants
+
+As the board size is extendible, the rules can also be naturally extended to larger boards. Additionally, the pawns can be replaced by [Berolina pawns](https://en.wikipedia.org/wiki/Berolina_chess) or [Berolina Plus pawns](https://en.wikipedia.org/wiki/Berolina_chess).
+
+## Setup
+
+Fork the `hexapawn` repository to your GitHub Account.
+
+Then, run:
+
+```Setup guide needs to be added```
+
+### Prerequisites
+
+- [Git](https://git-scm.com/)
+- [Python](https://www.python.org/)
+
+## Usage - Running hexapawn
+
+````Section needs to be added````
+
+## How it works
+
+````Section needs to be added````
+
+## FAQ
+
+### Need help?
+
+````Text needs to be added````
+
+### Want to report a bug or suggest an Enhancement?
+
+````Text needs to be added````
+
+👉 For more information on how to contribute, please read through our [CONTRIBUTING.md](https://github.com/LrnzDC3696/hexapawn/blob/main/CONTRIBUTING.md)!
+
+###  Want to Contribute?
+
+Check out our Issues with the `good first issue` and `help wanted` label. We suggest also looking at the closed ones to get a sense of what your issue and/or PR should look like.
+
+👉 For more information on how to contribute, please read through our [CONTRIBUTING.md](https://github.com/LrnzDC3696/hexapawn/blob/main/CONTRIBUTING.md)!
+
+## Code of Conduct
+
+````Missing Text````
+
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+
+## Author
+
+👤 **LrnzDC3696**
+
+* Github: [@LrnzDC3696](https://github.com/LrnzDC3696)
+
+## Ressources
+
+- https://web.archive.org/web/20080616173331/http://www.javazoid.com/hexapawn.html
+- https://en.wikipedia.org/wiki/Hexapawn
+
+## License
+
+`hexapawn` is free and open source software distributed under the terms of the [GNU License](https://github.com/LrnzDC3696/hexapawn/blob/main/LICENSE).
